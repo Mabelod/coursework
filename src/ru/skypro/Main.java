@@ -19,8 +19,8 @@ public class Main {
         employees[9] = new Employee("Щербакова Анастасия Даниловна", 4, 95000);
     }
 
-    private static float calculateSalary() {
-        float sum = 0;
+    private static int calculateSalary() {
+        int sum = 0;
         for (int i = 0; i < employees.length; i++) {
             if (numberDepartment == employees[i].getDepartmentStaff())
                 sum += employees[i].getSalary();
@@ -61,14 +61,13 @@ public class Main {
     }
 
     private static void findMiddleSalary() {
-        float sum;
         int employee = 0;
         for (int i = 0; i < employees.length; i++) {
             if (numberDepartment == employees[i].getDepartmentStaff()) {
                 employee++;
             }
         }
-        sum = calculateSalary() / employee;
+        double sum = calculateSalary() * 1.0 / employee;
         System.out.println("Среднняя сумма зарплат по " + numberDepartment + "-му отделу = " + sum + " (" + employee + ")");
     }
 
@@ -127,13 +126,13 @@ public class Main {
     public static void main(String[] args) {
         completionEmployees();
         showStaffDepartment();
-        System.out.println("Сумма зарплат по " + numberDepartment + "-му отделу в месяц = " + (int) calculateSalary());
+        System.out.println("Сумма зарплат по " + numberDepartment + "-му отделу в месяц = " + calculateSalary());
         findMiddleSalary();
         findMaxSalary();
         findMinSalary();
         increaseSalaryDepartmentStaff();
         showStaffDepartment();
-        System.out.println("Сумма зарплат по " + numberDepartment + "-му отделу в месяц = " + (int) calculateSalary());
+        System.out.println("Сумма зарплат по " + numberDepartment + "-му отделу в месяц = " + calculateSalary());
         findMiddleSalary();
         findMaxSalary();
         findMinSalary();
