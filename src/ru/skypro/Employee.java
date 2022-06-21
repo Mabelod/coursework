@@ -11,11 +11,7 @@ public class Employee {
         this.staff = staff;
         this.departmentStaff = departmentStaff;
         this.salary = salary;
-        this.id = getCounter();
-        counter++;
-    }
-    public int getCounter() {
-        return counter;
+        this.id = counter++;
     }
 
     public String getStaff() {
