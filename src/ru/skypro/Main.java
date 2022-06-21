@@ -15,17 +15,19 @@ public class Main {
         employees[8] = new Employee("Кутилина Елена Анатольевна", 1, 120000);
         employees[9] = new Employee("Щербакова Анастасия Даниловна", 3, 95000);
     }
-    private static void calculateSalary() {
+    private static int calculateSalary() {
         int sum = 0;
         for (int i = 0; i < employees.length; i++) {
             sum += employees[i].getSalary();
         }
-        System.out.println("Сумма затрат за месяц = " + sum);
+        return sum;
     }
 
     private static void showEmployees() {
+        int number = 1;
         for (int i = 0; i < employees.length; i++) {
-            System.out.println(employees[i]);
+            System.out.println(number + ":" + employees[i]);
+            number++;
         }
     }
 
@@ -54,24 +56,22 @@ public class Main {
     }
 
     private static void findMiddleSalary() {
-        int sum = 0;
-        for (int i = 0; i < employees.length; i++) {
-            sum += employees[i].getSalary();
-        }
-        sum /= employees.length;
+        double sum = calculateSalary() * 1.0 / employees.length;
         System.out.println("Среднняя сумма затрат в месяц = " + sum);
     }
 
     private static void showStaff() {
+        int number = 1;
         for (int i = 0; i < employees.length; i++) {
-            System.out.println(employees[i].getStaff());
+            System.out.println(number + ":" + employees[i].getStaff());
+            number++;
         }
     }
 
     public static void main(String[] args) {
         completionEmployees();
         showEmployees();
-        calculateSalary();
+        System.out.println("Сумма затрат в месяц = " + calculateSalary());
         findMiddleSalary();
         findMinSalary();
         findMaxSalary();
